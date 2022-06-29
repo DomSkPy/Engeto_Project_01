@@ -69,7 +69,7 @@ else:
     exit()
 print(line)
 
-#number of the text
+#number of the texts
 number_of_text = input(f"Enter a number btw. 1 and {len(TEXTS)}:")
 print(line)
 
@@ -82,12 +82,42 @@ elif int(number_of_text) == 2:
     text_ch = str(TEXTS[1])
 elif int(number_of_text) == 3:
     text_ch = str(TEXTS[2])
-elif int(number_of_text) >= 4 or number_of_text == 0:
+else:
     print("Wrong number.")
     exit()
 
+# Count of the word, title and upper lower cases, digits and frequencies
 title_case = 0
 upper_case = 0
 lower_case = 0
 words = 0
 digits = list()
+frec = dict()
+
+# w -> shortcut for "word"
+for w in text_ch.split():
+    w = w.strip(",")
+    words += 1
+    if len(w) not in frec:
+        frec[len(w)] = 1
+    else:
+        frec[len(w)] += 1
+    if w.istitle():
+        title_case = title_case + 1
+    elif w.isupper():
+        upper_case = upper_case + 1
+    elif w.islower():
+        lower_case = lower_case + 1
+    elif w.isdigit():
+        digits.append(int(w))
+
+print(
+    f"There are {words} words in the selected text",
+    f"There are {title_case} title cases words",
+    f"There are {lower_case} lower cases words",
+    f"There are {len(digits)} digits words",
+    f"Sum of nubers in text: {sum(digits)}",
+    sep="\n"
+)
+print(line)
+
