@@ -121,3 +121,7 @@ print(
 )
 print(line)
 
+# Graf
+for a, b in frec.items():
+    print(a, int(b) * "*", b)
+print(line)
