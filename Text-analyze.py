@@ -50,6 +50,7 @@ garpike and stingray are also present.'''
 ]
 
 #Welcoming user
+print("Welcome to text analyzer!")
 login_name = input(f"Please entry your login name:")
 login_password = input(f"Please entry your password:")
 line = ("-" * 40)
