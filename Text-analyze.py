@@ -18,7 +18,7 @@ discord: DomSk
 
 """
 '''
-author =
+author = Dominik Skrenek
 '''
 
 TEXTS = ['''
