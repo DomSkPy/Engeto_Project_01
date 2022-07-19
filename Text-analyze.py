@@ -5,6 +5,7 @@ autor: Domnik Skrenek
 email: skrenekD@gmail.com
 discord: DomSk
 """
+import sys
 
 """
 +------+-------------+
@@ -28,7 +29,7 @@ name = registry_users.keys
 line = ("-" * 40)
 #Welcoming user
 print(line)
-print((" " * 3) + ("Welcome to text analyzer!"))
+print("Welcome to text analyzer!".center(40, " "))
 print(line)
 login_name = input(f"Please entry your login name:")
 login_password = input(f"Please entry your password:")
@@ -68,7 +69,7 @@ upper_case = 0
 lower_case = 0
 words = 0
 digits = list()
-frec = dict()
+frec = {}
 
 # w -> shortcut for "word"
 for w in text_ch.split():
@@ -99,13 +100,21 @@ print(
 print(line)
 
 # Graf
-print(line)
-zah = "|Width|" + (" " * 2) + "|Occurences|" + (" " * 3) + "|Numb.|" + (" " * 3)
-print(zah)
-print(line)
+for w in text_ch:
+    if w not in frec:
+        frec.setdefault(len(w), 1)
+    else:
+        frec[len(w)] += 1
 
+result = [(w, frec[w]) for w in frec]
 
-for a, b in frec.items():
-    print(a, int(b) * "*", b)
+print(f"|Width||Occurences||Numb.|".center(30, " "),
+      line, sep="\n")
+for w, cel in sorted(result):
+    print(f"{w:>2}|{5 * ' '}{'*' * cel:<20}|{cel}")
+else:
+    print(f"{line}")
+
 print(line)
-
+print("Thank you!".center(40, " "))
+print(line)
