@@ -5,7 +5,6 @@ autor: Domnik Skrenek
 email: skrenekD@gmail.com
 discord: DomSk
 """
-import sys
 
 """
 +------+-------------+
